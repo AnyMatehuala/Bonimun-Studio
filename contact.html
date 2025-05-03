@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cal+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <!--Barra de navegación-->
+        <h1>BONIMUN</h1>
+        <h2>Yoga & Pilates Studio</h2>
+        <nav>
+            <ul class="navbar">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="clases.html">Clases</a></li>
+                <li><a href="calendar.html">Calendario</a></li>
+                <li><a href="planes.html">Planes</a></li>
+                <li><a href="contact.html">Reserva tu clase</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!--Formulario de reservación-->
+    <div class="container mt-5">
+        <h2 class="text-center">Reserva tu Clase</h2>
+        
+        <form class="reservation-form">
+            <div class="mb-3">
+                <label for="name" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="name" placeholder="Tu nombre" required>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Correo electrónico</label>
+                <input type="email" class="form-control" id="email" placeholder="Tu correo" required>
+            </div>
+            <div class="mb-3">
+                <label for="date" class="form-label">Selecciona la Fecha</label>
+                <input type="date" class="form-control" id="date" required>
+            </div>
+            <div class="mb-3">
+                <label for="time" class="form-label">Selecciona el Horario</label>
+                <select class="form-select" id="time" required>
+                    <option value="">Elige un horario</option>
+                    <option value="09:00">09:00 AM - 10:00 AM</option>
+                    <option value="11:00">11:00 AM - 12:00 PM</option>
+                    <option value="14:00">02:00 PM - 03:00 PM</option>
+                    <option value="16:00">04:00 PM - 05:00 PM</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Reservar Clase</button>
+        </form>
+
+        <!--Redes sociales-->
+        <div class="social-links mt-4 text-center">
+            <p>Síguenos en redes sociales:</p>
+            <a href="#" class="btn btn-outline-dark mx-2"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="btn btn-outline-dark mx-2"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="btn btn-outline-dark mx-2"><i class="fab fa-instagram"></i></a>
+        </div>
+        <script src="https://kit.fontawesome.com/a076d05399.js"></script> <!-- Íconos de redes sociales -->
+    </div>
+    
+<!--Pie de página-->
+    <section class="hero">
+        <h2>Encuentra tu equilibrio</h2>
+        <p>Conectamos cuerpo, mente y espíritu a través de la práctica del yoga.</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Estudio de Yoga. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>
