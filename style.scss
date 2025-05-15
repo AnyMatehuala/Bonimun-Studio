@@ -28,11 +28,11 @@ body {
 @keyframes fadeInSlideUp {
   0% {
     opacity: 0;
-    transform: translateY(20px); // Empieza desplazado hacia abajo
+    transform: translateY(20px); // Desplazado hacia abajo
   }
   100% {
     opacity: 1;
-    transform: translateY(0); // Finaliza en su posición original
+    transform: translateY(0); // Posición original
   }
 }
 
@@ -50,8 +50,8 @@ h1 {
   text-transform: uppercase;
   text-align: center;
   margin-bottom: 20px;
-  animation: fadeInSlideUp $animation-speed ease-out; // Aplicamos la animación al título
-  animation-delay: 0.3s; // Retraso de 0.3s para que el título aparezca después de un breve momento
+  animation: fadeInSlideUp $animation-speed ease-out; // Animación de título
+  animation-delay: 0.3s; // Retraso de 0.3s para que el título aparezca después
 }
 
 // Transición en los subtítulos (h2, h3)
