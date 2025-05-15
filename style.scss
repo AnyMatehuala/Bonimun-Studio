@@ -1,346 +1,420 @@
+// Importación de fuentes
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Poppins:wght@300;400;600&display=swap');
 
-// Variables
-$font-primary: "Cal Sans", sans-serif;
-$font-secondary: 'Poppins', sans-serif;
-$color-background: #FAE6FA;
-$color-primary: #4A235A;
-$color-secondary: #DCC6E0;
-$color-tertiary: #ca9ec5;
-$color-white: white;
+// Definición de variables
+$primary-color: #FAE6FA;
+$secondary-color: #4A235A;
+$header-bg: #DCC6E0;
+$navbar-bg: #dc9de7;
+$hover-color: #ca9ec5;
+$font-family-main: "Cal Sans", sans-serif;
+$font-family-secondary: 'Poppins', sans-serif;
+$header-bg: #DCC6E0;
+$transition-speed: 0.3s;
+$animation-speed: 1s;
 
-// Mixins
-@mixin flex-center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-@mixin transition($property, $duration) {
-    transition: $property $duration;
-}
-
-// Global Styles
+// Estilos globales
 body {
-    font-family: $font-primary;
-    background-color: $color-background;
-    color: $color-primary;
-    margin: 0;
-    padding: 10px;
-    text-align: center;
+  font-family: $font-family-main;
+  background-color: $primary-color;
+  color: $secondary-color;
+  margin: 0;
+  padding: 10px;
+  text-align: center;
+  transition: background-color $transition-speed ease; // Transición global
 }
 
+// Animación de Fade In y Slide Up
+@keyframes fadeInSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px); // Empieza desplazado hacia abajo
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); // Finaliza en su posición original
+  }
+}
+
+// Header
 header {
-    background-color: $color-secondary;
-    padding: 20px;
+  background-color: $header-bg;
+  padding: 20px;
 }
 
-// Typography
-h1, h2, h3, p, p1 {
-    font-family: $font-primary;
-    color: $color-primary;
-    text-align: center;
-}
-
+// Títulos
 h1 {
-    font-weight: 500;
-    text-transform: uppercase;
-    margin-bottom: 20px;
+  font-family: "Cal Sans", sans-serif;
+  font-weight: 500;
+  color: $secondary-color;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 20px;
+  animation: fadeInSlideUp $animation-speed ease-out; // Aplicamos la animación al título
+  animation-delay: 0.3s; // Retraso de 0.3s para que el título aparezca después de un breve momento
 }
 
-h2 {
-    margin: 50px 0;
-}
-
-h3 {
-    color: $color-white;
-    margin: 50px 0;
+// Transición en los subtítulos (h2, h3)
+h2, h3 {
+  font-family: "Cal Sans", sans-serif;
+  color: $secondary-color;
+  text-align: center;
+  margin-bottom: 50px;
+  margin-top: 50px;
+  transition: color $transition-speed ease;
+  
+  &:hover {
+    color: $hover-color; // Efecto hover sobre subtítulos
+  }
 }
 
 // Navbar
 .navbar {
-    list-style: none;
-    padding: 0;
-    @include flex-center;
-    background-color: $color-tertiary;
-
-    li {
-        margin: 0;
-
-        a {
-            display: block;
-            padding: 15px 20px;
-            text-decoration: none;
-            color: $color-primary;
-            font-weight: bold;
-            @include transition(background, 0.3s);
-
-            &:hover {
-                background-color: $color-tertiary;
-                color: $color-white;
-            }
-        }
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  background-color: $navbar-bg;
+  
+  li {
+    margin: 0;
+    
+    a {
+      display: block;
+      padding: 15px 20px;
+      text-decoration: none;
+      color: $secondary-color;
+      font-weight: bold;
+      transition: background 0.3s;
+      
+      &:hover {
+        background-color: $hover-color;
+        color: white;
+      }
     }
+  }
 }
 
 // Carousel
 .carousel-img {
-    filter: brightness(50%);
-    height: 100vh;
-    object-fit: cover;
+  filter: brightness(50%);
+  height: 100vh;
+  object-fit: cover;
 }
 
 .carousel-caption {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: $color-white;
-    text-align: center;
-    width: 80%;
-    background: rgba(0, 0, 0, 0.5);
-    padding: 15px;
-    border-radius: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+  width: 80%;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 15px;
+  border-radius: 10px;
 }
 
-// Buttons
+// Descripción
+p, p1 {
+  font-family: $font-family-main;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+p {
+  color: $secondary-color;
+}
+
+p1 {
+  color: white;
+}
+
+// Botones
 button {
-    background-color: $color-tertiary;
-    border: none;
-    padding: 10px 20px;
-    color: $color-white;
-    font-size: 1rem;
-    cursor: pointer;
-    font-family: $font-secondary;
-    align-items: center;
-    @include transition(background-color, 0.3s);
-
-    &:hover {
-        background-color: $color-secondary;
-    }
+  background-color: $hover-color;
+  border: none;
+  padding: 10px 20px;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  font-family: $font-family-secondary;
+  align-items: center;
+  
+  &:hover {
+    background-color: $header-bg;
+  }
 }
 
-// Images
+.bird-container {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  width: 100%;
+  pointer-events: none; // No interfiere con clics
+}
+
+.bird {
+  width: 40px;
+  height: 40px;
+  background-size: cover;
+  position: absolute;
+  animation: flyAcross 10s linear infinite;
+}
+
+.bird.delay {
+  animation-delay: 3s;
+}
+
+@keyframes flyAcross {
+  0% {
+    left: -50px;
+    top: 20px;
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    top: 100px;
+    transform: scale(1.1) rotate(10deg);
+  }
+  100% {
+    left: 100%;
+    top: 60px;
+    transform: scale(1) rotate(-5deg);
+  }
+}
+
+// Imágenes
 .img-fluid {
-    max-width: 100%;
-    height: auto;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  max-width: 100%;
+  height: auto;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-// Review Cards
+// Reseñas
 .review-container {
-    @include flex-center;
-    gap: 20px;
-    flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
 }
 
 .review-card {
-    max-width: 300px;
-    padding: 20px;
-    border-radius: 10px;
-    background-color: $color-white;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    text-align: center;
+  max-width: 300px;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+
+  img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+  }
+}
+
+// Localización
+.location-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+// Carousel de imágenes
+.carousel {
+  display: flex;
+  flex-wrap: wrap;
+  flex: 0 0 calc(33.333% - 10px);
+  margin-bottom: 20px;
+  width: 100%;
+  height: auto;
+  justify-content: center;
+  align-items: center;
+  max-width: 800px;
+  margin: auto;
+  
+  .carousel-item {
+    .row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
     img {
-        width: 80px;
-        height: 80px;
-        border-radius: 50%;
-        margin-bottom: 10px;
+      border-radius: 10px;
     }
+  }
 }
 
-// Location Container
-.location-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-}
-
-// Carousel Items
-.carousel {
-    display: flex;
-    flex-wrap: wrap;
-    flex: 0 0 calc(33.333% - 10px);
-    margin-bottom: 20px;
-    width: 100%;
-    height: auto;
-    @include flex-center;
-    max-width: 800px;
-    margin: auto;
-
-    .carousel-item .row {
-        @include flex-center;
-    }
-
-    .carousel-item img {
-        border-radius: 10px;
-    }
-}
-
-// Icon Container
+// Iconos sociales
 .icon-container {
-    @include flex-center;
-    gap: 20px;
-    margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
 }
 
-// Social Links
-.social-link img {
+.social-link {
+  img {
     width: 50px;
-    @include transition(transform, 0.3s ease-in-out);
+    transition: transform 0.3s ease-in-out;
+  }
 
-    &:hover {
-        transform: scale(1.2);
-    }
+  &:hover img {
+    transform: scale(1.2);
+  }
 }
 
-// Yoga Images
+// Yoga
 .yoga-img {
-    width: 100%;
-    max-width: 300px;
-    border-radius: 10px;
+  width: 100%;
+  max-width: 300px;
+  border-radius: 10px;
 }
 
-// Row and Column
 .row {
-    @include flex-center;
+  display: flex;
+  justify-content: center;
 }
 
 .col-md-4 {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-// Reservation Form
+// Reservaciones
 .reservation-form {
-    max-width: 500px;
-    margin: auto;
-    background: $color-white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  margin: auto;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 
-    .form-label {
-        font-weight: bold;
-    }
+  .form-label {
+    font-weight: bold;
+  }
 
-    .form-select,
-    .form-control {
-        border-radius: 5px;
-    }
+  .form-select,
+  .form-control {
+    border-radius: 5px;
+  }
 }
 
-// Social Links
+// Enlaces sociales
 .social-links {
-    @include flex-center;
-    gap: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
 
-    a {
-        @include flex-center;
-        font-size: 24px;
-        width: 50px;
-        height: 50px;
-        text-decoration: none;
-        border-radius: 50%;
-        border: 2px solid #333;
-        @include transition(background-color, 0.3s), color 0.3s;
-
-        i {
-            color: #333;
-        }
-
-        &:hover {
-            background-color: #333;
-
-            i {
-                color: $color-white;
-            }
-        }
-    }
-}
-
-// Container
-.container {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-// Schedule
-.schedule {
+  a {
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    width: 50px;
+    height: 50px;
+    text-decoration: none;
+    border-radius: 50%;
+    border: 2px solid #333;
+    transition: background-color 0.3s, color 0.3s;
+
+    i {
+      color: #333;
+    }
+
+    &:hover {
+      background-color: #333;
+
+      i {
+        color: white;
+      }
+    }
+  }
+}
+
+// Contenedor general
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+// Calendario
+.schedule {
+  display: flex;
+  flex-direction: column;
 }
 
 .row-cal {
-    display: flex;
-    justify-content: space-between;
-    text-align: center;
-    margin-bottom: 10px;
-
-    .day {
-        font-weight: bold;
-        background-color: $color-tertiary;
-        color: $color-white;
-        padding: 10px;
-        border-radius: 5px;
-    }
-
-    .class {
-        flex: 1;
-        padding: 15px;
-        border-radius: 5px;
-        font-size: 16px;
-        color: $color-white;
-
-        &.yoga {
-            background-color: $color-secondary;
-        }
-
-        &.pilates {
-            background-color: $color-tertiary;
-        }
-    }
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  margin-bottom: 10px;
 }
 
-// Subscription Plans
+.day {
+  font-weight: bold;
+  background-color: $hover-color;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.class {
+  flex: 1;
+  padding: 15px;
+  border-radius: 5px;
+  font-size: 16px;
+  color: white;
+}
+
+.yoga {
+  background-color: $header-bg;
+}
+
+.pilates {
+  background-color: $hover-color;
+}
+
+// Planes de suscripción
 .subscription-plans {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    max-width: 1000px;
-    margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  max-width: 1000px;
+  margin: auto;
 
-    .plan {
-        flex: 1 1 calc(33.33% - 20px);
-        min-width: 250px;
-        max-width: 300px;
-        padding: 20px;
-        background: $color-white;
-        border-radius: 10px;
-        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-        text-align: center;
+  .plan {
+    flex: 1 1 calc(33.33% - 20px);
+    min-width: 250px;
+    max-width: 300px;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
 
-        &:nth-child(4),
-        &:nth-child(5) {
-            flex: 1 1 calc(50% - 20px);
-        }
+    &:nth-child(4),
+    &:nth-child(5) {
+      flex: 1 1 calc(50% - 20px);
     }
+  }
 }
 
-// Hero Section
+// Hero
 .hero {
-    padding: 50px;
-    background-color: $color-secondary;
+  padding: 50px;
+  background-color: $header-bg;
 }
 
 // Footer
 footer {
-    margin-top: 20px;
-    padding: 10px;
-    background-color: $color-tertiary;
+  margin-top: 20px;
+  padding: 10px;
+  background-color: $hover-color;
 }
